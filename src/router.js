@@ -3,6 +3,7 @@ import Router from 'vue-router';
 import Home from './views/Home.vue';
 import Login from './views/Login.vue';
 import Logout from './views/Logout.vue';
+import ResumesShow from './views/Resumes/Show.vue';
 
 Vue.use(Router);
 
@@ -32,6 +33,11 @@ export default new Router({
       path: '/logout',
       name: 'logout',
       component: Logout
+    },
+    {
+      path: '/resumes/:id',
+      name: 'resumes-show',
+      component: ResumesShow
     }
   ]
 });
