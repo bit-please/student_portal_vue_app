@@ -59,7 +59,9 @@ import axios from "axios";
 export default {
   data: function() {
     return {
-      student: {},
+      student:
+        {
+        },
       capstones: [
         {name: "capstone 1",
           description: "capstonecapstonecapstone1",
@@ -115,3 +117,7 @@ export default {
 };
 </script>
 
+
+
+<!-- 
+first_name: "Bob", last_name: "Bobson", email: "bob@gmail.com", phone_number: "3876924", bio: "My name is Bob, and I'm the best.", linked_in: "https://www.linkedin.com/in/bobbobson/", twitter: "https://www.twitter.com/bobbobson", website: "bob.com", resume: "bobresume.pdf", github: "https://www.github.com/bobbobson", photo: "bob.jpeg" -->
