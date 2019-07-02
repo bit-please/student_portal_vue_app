@@ -1,6 +1,10 @@
 <template>
   <div class="resumes-show">
-    
+  
+  <button>
+    <router-link v-bind:to="/resumes/">Edit</router-link>
+  </button>
+
   <h1>{{ student.first_name }} {{ student.last_name }}</h1>
   <h3>Email: {{ student.email }}</h3>
   <h3>Phone Number:{{ student.phone_number }}</h3>
@@ -45,7 +49,6 @@
     <h5>URL:{{ capstone.url }}</h5>
     <h5>Screenshot:{{ capstone.screenshot }}</h5>
   </div>
-
 
   </div>
 </template>
