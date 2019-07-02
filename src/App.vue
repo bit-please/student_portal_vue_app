@@ -7,8 +7,10 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav">
-          <router-link to="/resumes/1" class="nav-item nav-link">View Resume</router-link>
+          <router-link to="/resumes/1" class="nav-item nav-link">View Resume</router-link> 
           <router-link to="/resumes/1/edit" class="nav-item nav-link">Edit Resume</router-link> 
+          <router-link to="/login" class="nav-item nav-link">Login</router-link> 
+          <router-link to="/logout" class="nav-item nav-link">Logout</router-link> 
         </div>
       </div>
     </nav>

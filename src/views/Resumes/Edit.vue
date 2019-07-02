@@ -39,52 +39,7 @@
       </form><br>
     </div>
 
-
-    <h1 class="text-center">Edit Skills</h1>
-
-    <div>
-      <form>
-        
-      </form>
-    </div>
-
     
-    <h2 class="text-center">Update Education</h2>
-
-    <div v-for="education in educations">
-      <form v-on:submit.prevent="submit()">
-        <div class="form-row">
-          <div class="form-group col-md-6">
-            <label for="start_date">Start Date:</label>
-            <input type="string" class="form-control" id="start_date" placeholder="7/14/2015" v-model="education.start_date">
-          </div> 
-        </div>
-        <div class="form-row">
-          <div class="form-group col-md-6">
-            <label for="end_date">End Date:</label>
-            <input type="string" class="form-control" id="end_date" placeholder="05/22/2019" v-model="education.end_date">
-          </div> 
-        </div>
-        <div class="form-row">
-          <div class="form-group col-md-6">
-            <label for="degree">Degree:</label>
-            <input type="string" class="form-control" id="degree" placeholder="bachelor" v-model="education.degree">
-          </div> 
-        </div>
-        <div class="form-row">
-          <div class="form-group col-md-6">
-            <label for="university_name">University Name:</label>
-            <input type="string" class="form-control" id="university_name" placeholder="Your school name" v-model="education.university_name">
-          </div> 
-        </div>
-        <div class="form-row">
-          <div class="form-group col-md-6">
-            <label for="details">Details:</label>
-            <input type="text" class="form-control" id="details" placeholder="Please input educational details" v-model="education.details">
-          </div> 
-        </div>
-      </form>
-    </div>
 
     <div v-for="capstone in capstones">
       <form v-on:submit.prevent="submit()">
@@ -114,7 +69,6 @@
         </div>
       </form><br>
     </div>
-
 
   </div>
 </template>
@@ -160,21 +114,17 @@ export default {
           details: "details 2 details 2 details 2 details 2 details 2 details 2 details 2 "},
       ],
       capstones: [
-        {
-          name: "capstone 1",
+        {name: "capstone 1",
           description: "capstonecapstonecapstone1",
           url: "https://www.capstone1.com",
           screenshot: "image.jpg"},
-        {
-          name: "capstone 2",
+        {name: "capstone 2",
           description: "capstonecapstonecapstone2",
           url: "https://www.capstone2.com",
           screenshot: "image2.jpg"}
-      ]
+      ],
     };
-
   },
-  
   created: function() {
   },
   methods: {
