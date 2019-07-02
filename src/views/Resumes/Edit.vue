@@ -39,6 +39,15 @@
       </form><br>
     </div>
 
+
+    <h1 class="text-center">Edit Skills</h1>
+
+    <div>
+      <form>
+        
+      </form>
+    </div>
+
     
     <h2 class="text-center">Update Education</h2>
 
@@ -130,6 +139,12 @@ export default {
           company_name: "company name 2",
           details: "details 2 details 2 details 2 details 2 details 2 details 2 details 2 "},
       ],
+      skills: [ 
+        "javascript", 
+        "sql", 
+        "ruby", 
+        "postico"
+      ]
       educations: [
         {
           start_date: "01-01-2019",
@@ -155,7 +170,7 @@ export default {
           description: "capstonecapstonecapstone2",
           url: "https://www.capstone2.com",
           screenshot: "image2.jpg"}
-      ],
+      ]
     };
 
   },
