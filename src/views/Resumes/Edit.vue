@@ -40,15 +40,22 @@
     </div>
 
 
-    <h1 class="text-center">Edit Skills</h1>
+    <h2 class="text-center">Edit Skills</h2>
 
-    <div>
-
+    <div v-for="skill in skills">
+      <form v-on:submit.prevent="submit()">
+        <div class="form-row">
+          <div class="form-group col-md-6">
+            <label for="name">Name of Skill:</label>
+            <input type="text" class="form-control" id="name" placeholder="Describe your skill" v-model="skill.name">
+          </div> 
+        </div>
+      </form>
     </div>
 
     
 
-    <h2 class="text-center">Edit Education</h2>
+    <h3 class="text-center">Edit Education</h3>
 
     <div v-for="education in educations">
       <form v-on:submit.prevent="submit()">
@@ -139,10 +146,18 @@ export default {
           details: "details 2 details 2 details 2 details 2 details 2 details 2 details 2 "},
       ],
       skills: [ 
-        "javascript", 
-        "sql", 
-        "ruby", 
-        "postico"
+        {
+          name: "javascript"
+        }, 
+        {
+          name: "sql"
+        },
+        {
+          name: "ruby"
+        },
+        {
+          name: "postico"
+        }
       ],
       educations: [
         {
