@@ -4,6 +4,7 @@ import Home from './views/Home.vue';
 import Login from './views/Login.vue';
 import Logout from './views/Logout.vue';
 import Update from './views/Update.vue';
+import ResumesShow from './views/Resumes/Show.vue';
 
 Vue.use(Router);
 
@@ -38,6 +39,11 @@ export default new Router({
       path: '/update',
       name: 'update',
       component: Update
+    },
+    {
+      path: '/resumes/:id',
+      name: 'resumes-show',
+      component: ResumesShow
     }
   ]
 });
