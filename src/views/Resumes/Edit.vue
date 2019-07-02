@@ -6,7 +6,8 @@
     <h1 class="text-center">Edit Your Personal Info:</h1>
     
     <div v-for: student>
-      <form v-on:submit.prevent="submit()">
+      <!-- <form v-on:submit.prevent="submit()"> -->
+        <form>
         <div class="form-row">
           <div class="form-group col-md-6">
             <label for="first_name">First Name:</label>
@@ -27,7 +28,7 @@
         </div>
         <div class="form-row">
           <div class="form-group col-md-6">
-            <label for="phone_number">Company Name:</label>
+            <label for="phone_number">Phone Number:</label>
             <input type="string" class="form-control" id="phone_number" placeholder="enter your phone number" v-model="student.phone_number">
           </div> 
         </div>
@@ -73,6 +74,7 @@
             <input type="string" class="form-control" id="photo" placeholder="upload your photo url" v-model="student.photo">
           </div> 
         </div>
+        <button v-on:click="updateStudent()">Submit Changes</button>
       </form><br>
     </div>
 
@@ -80,7 +82,8 @@
     <h1 class="text-center">Edit Experiences</h1>
     
     <div v-for="experience in experiences">
-      <form v-on:submit.prevent="submit()">
+      <!-- <form v-on:submit.prevent="submit()"> -->
+      <form>
         <div class="form-row">
           <div class="form-group col-md-6">
             <label for="start_date">Start Date:</label>
@@ -95,8 +98,8 @@
         </div>
         <div class="form-row">
           <div class="form-group col-md-6">
-            <label for="job_title">Job Title:</label>
-            <input type="string" class="form-control" id="job_title" placeholder="enter job title" v-model="experience.job_title">
+            <label for="title">Job Title:</label>
+            <input type="string" class="form-control" id="title" placeholder="enter job title" v-model="experience.title">
           </div> 
         </div>
         <div class="form-row">
@@ -112,17 +115,20 @@
           </div> 
         </div>
       </form><br>
+      <button v-on:click="updateExperience(experience)">Submit Changes</button>
     </div>
 
 
     <h2 class="text-center">Edit Skills</h2>
 
     <div v-for="skill in skills">
-      <form v-on:submit.prevent="submit()">
+      <!-- <form v-on:submit.prevent="submit()"> -->
+        <form>
         <div class="form-row">
           <div class="form-group col-md-6">
             <label for="name">Name of Skill:</label>
             <input type="text" class="form-control" id="name" placeholder="Describe your skill" v-model="skill.name">
+            <button v-on:click="updateSkill(skill)">Submit Changes</button>
           </div> 
         </div>
       </form>
@@ -133,7 +139,8 @@
     <h2 class="text-center">Edit Education</h2>
 
     <div v-for="education in educations">
-      <form v-on:submit.prevent="submit()">
+      <!-- <form v-on:submit.prevent="submit()"> -->
+        <form>
         <div class="form-row">
           <div class="form-group col-md-6">
             <label for="start_date">Start Date:</label>
@@ -154,8 +161,8 @@
         </div>
         <div class="form-row">
           <div class="form-group col-md-6">
-            <label for="university_name">University Name:</label>
-            <input type="string" class="form-control" id="university_name" placeholder="Your school name" v-model="education.university_name">
+            <label for="university">University Name:</label>
+            <input type="string" class="form-control" id="university" placeholder="Your school name" v-model="education.university">
           </div> 
         </div>
         <div class="form-row">
@@ -165,12 +172,14 @@
           </div> 
         </div>
       </form>
+      <button v-on:click="updateEducation(education)">Submit Changes</button>
     </div>
 
-     <h2 class="text-center">Edit Capstone Info</h2>
+    <h2 class="text-center">Edit Capstone Info</h2>
 
     <div v-for="capstone in capstones">
-      <form v-on:submit.prevent="submit()">
+      <!-- <form v-on:submit.prevent="submit()"> -->
+        <form>
         <div class="form-row">
           <div class="form-group col-md-6">
             <label for="start_date">Name:</label>
@@ -196,6 +205,7 @@
           </div> 
         </div>
       </form><br>
+      <button v-on:click="updateCapstones(capstone)">Submit Changes</button>
     </div>
 
   </div>
@@ -207,68 +217,87 @@ import axios from "axios";
 export default {
   data: function() {
     return {
-      student:{},
-      experiences: [
-        {
-          start_date: "01-01-2019",
-          end_date: "06-01-2019",
-          job_title: "job title 1",
-          company_name: "company name 1",
-          details: "details 1 details 1 details 1 details 1 details 1 details 1 details 1 "},
-        {
-          start_date: "02-01-2016",
-          end_date: "06-01-2018",
-          job_title: "job title 2",
-          company_name: "company name 2",
-          details: "details 2 details 2 details 2 details 2 details 2 details 2 details 2 "},
-      ],
-      skills: [ 
-        {
-          name: "javascript"
-        }, 
-        {
-          name: "sql"
-        },
-        {
-          name: "ruby"
-        },
-        {
-          name: "postico"
-        }
-      ],
-      educations: [
-        {
-          start_date: "01-01-2019",
-          end_date: "06-01-2019",
-          degree: "bachelors 1",
-          university_name: "university name 1",
-          details: "details 1 details 1 details 1 details 1 details 1 details 1 details 1 "},
-        {
-          start_date: "02-01-2016",
-          end_date: "06-01-2018",
-          degree: "bachelors 2",
-          university_name: "university name 2",
-          details: "details 2 details 2 details 2 details 2 details 2 details 2 details 2 "},
-      ],
-      capstones: [
-        {name: "capstone 1",
-          description: "capstonecapstonecapstone1",
-          url: "https://www.capstone1.com",
-          screenshot: "image.jpg"},
-        {name: "capstone 2",
-          description: "capstonecapstonecapstone2",
-          url: "https://www.capstone2.com",
-          screenshot: "image2.jpg"}
-      ],
+      student: {},
+      capstones: [],
+      skills: [],
+      experiences: [],
+      educations: [],
     };
   },
   created: function() {
     axios.get("/api/students/1").then(response => {
       console.log(response.data);
       this.student = response.data;
+      this.skills = response.data.skills;
+      this.capstones = response.data.capstones;
+      this.experiences = response.data.experiences;
+      this.educations = response.data.educations;
     });
   },
   methods: {
+    updateStudent: function() {
+      var params = {
+        first_name: this.student.first_name,
+        last_name: this.student.last_name,
+        email: this.student.email,
+        phone_number: this.student.phone_number,
+        bio: this.student.bio,
+        linked_in: this.student.linked_in
+
+      };
+      axios.patch("/api/students/" + this.student.id, params).then(response => {
+        console.log(response.data);
+      });
+    },
+
+    updateExperience: function(experience) {
+      var params = {
+        start_date: experience.start_date,
+        end_date: experience.end_date,
+        title: experience.title,
+        company_name: experience.company_name,
+        details: experience.details
+      };
+      axios.patch("/api/experiences/" + experience.id, params).then(response => {
+        console.log(response.data);
+      });
+    },
+
+    updateSkill: function(skill) {
+      var params = {
+        name: skill.name
+      };
+      axios.patch("/api/skills/" + skill.id, params).then(response => {
+        console.log(response.data);
+      });
+    },
+
+    updateEducation: function(education) {
+      var params = {
+        student_id: this.student.id,
+        start_date: education.start_date,
+        end_date: education.end_date,
+        degree: education.degree,
+        university: education.university,
+        details: education.details
+      };
+      // hard coded education id until it is updated in api educations partial
+      axios.patch("/api/educations/1", params).then(response => {
+        console.log(response.data);
+      });
+    },
+
+    updateCapstones: function(capstone) {
+      var params = {
+        name: capstone.name,
+        description: capstone.description,
+        url: capstone.url,
+        screenshot: capstone.screenshot
+      };
+      axios.patch("/api/capstones/" + capstone.id, params).then(response => {
+        console.log(response.data);
+      });
+    }
   }
 };
 </script>
