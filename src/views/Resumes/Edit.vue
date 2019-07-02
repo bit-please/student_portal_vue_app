@@ -40,7 +40,7 @@
     </div>
 
     
-    <h2 class="text-center">Edit Education</h2>
+    <h2 class="text-center">Update Education</h2>
 
     <div v-for="education in educations">
       <form v-on:submit.prevent="submit()">
@@ -76,6 +76,36 @@
         </div>
       </form>
     </div>
+
+    <div v-for="capstone in capstones">
+      <form v-on:submit.prevent="submit()">
+        <div class="form-row">
+          <div class="form-group col-md-6">
+            <label for="start_date">Name:</label>
+            <input type="string" class="form-control" id="name" placeholder="enter capstone name" v-model="capstone.name">
+          </div> 
+        </div>
+        <div class="form-row">
+          <div class="form-group col-md-6">
+            <label for="end_date">Description:</label>
+            <input type="string" class="form-control" id="description" placeholder="enter capstone description" v-model="capstone.description">
+          </div> 
+        </div>
+        <div class="form-row">
+          <div class="form-group col-md-6">
+            <label for="job_title">URL:</label>
+            <input type="string" class="form-control" id="url" placeholder="enter capstone url" v-model="capstone.url">
+          </div> 
+        </div>
+        <div class="form-row">
+          <div class="form-group col-md-6">
+            <label for="company_name">Screenshot:</label>
+            <input type="string" class="form-control" id="screenshot" placeholder="enter screenshot url" v-model="capstone.screenshot">
+          </div> 
+        </div>
+      </form><br>
+    </div>
+
 
   </div>
 </template>
@@ -113,6 +143,18 @@ export default {
           degree: "bachelors 2",
           university_name: "university name 2",
           details: "details 2 details 2 details 2 details 2 details 2 details 2 details 2 "},
+      ],
+      capstones: [
+        {
+          name: "capstone 1",
+          description: "capstonecapstonecapstone1",
+          url: "https://www.capstone1.com",
+          screenshot: "image.jpg"},
+        {
+          name: "capstone 2",
+          description: "capstonecapstonecapstone2",
+          url: "https://www.capstone2.com",
+          screenshot: "image2.jpg"}
       ],
     };
 
