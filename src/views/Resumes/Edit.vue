@@ -43,9 +43,7 @@
     <h1 class="text-center">Edit Skills</h1>
 
     <div>
-      <form>
-        
-      </form>
+
     </div>
 
     
