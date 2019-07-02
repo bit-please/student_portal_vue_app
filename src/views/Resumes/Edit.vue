@@ -1,6 +1,81 @@
 <template>
   <div class="resumes-edit">
 
+    {{student}}
+
+    <h1 class="text-center">Edit Your Personal Info:</h1>
+    
+    <div v-for: student>
+      <form v-on:submit.prevent="submit()">
+        <div class="form-row">
+          <div class="form-group col-md-6">
+            <label for="first_name">First Name:</label>
+            <input type="string" class="form-control" id="first_name" placeholder="enter your first name" v-model="student.first_name">
+          </div> 
+        </div>
+        <div class="form-row">
+          <div class="form-group col-md-6">
+            <label for="last_name">Last Name:</label>
+            <input type="string" class="form-control" id="last_name" placeholder="enter your last name" v-model="student.last_name">
+          </div> 
+        </div>
+        <div class="form-row">
+          <div class="form-group col-md-6">
+            <label for="email">Email:</label>
+            <input type="string" class="form-control" id="email" placeholder="enter your email" v-model="student.email">
+          </div> 
+        </div>
+        <div class="form-row">
+          <div class="form-group col-md-6">
+            <label for="phone_number">Company Name:</label>
+            <input type="string" class="form-control" id="phone_number" placeholder="enter your phone number" v-model="student.phone_number">
+          </div> 
+        </div>
+         <div class="form-row">
+          <div class="form-group col-md-6">
+            <label for="bio">Short Bio:</label>
+            <input type="text" class="form-control" id="bio" placeholder="enter a short bio about yourself" v-model="student.bio">
+          </div> 
+        </div>
+        <div class="form-row">
+          <div class="form-group col-md-6">
+            <label for="linked_in">linked_in:</label>
+            <input type="string" class="form-control" id="linked_in" placeholder="enter your linked_in handle" v-model="student.linked_in">
+          </div> 
+        </div>
+        <div class="form-row">
+          <div class="form-group col-md-6">
+            <label for="twitter">Twitter:</label>
+            <input type="string" class="form-control" id="twitter" placeholder="enter your twitter handle" v-model="student.twitter">
+          </div> 
+        </div>
+        <div class="form-row">
+          <div class="form-group col-md-6">
+            <label for="website">Website:</label>
+            <input type="string" class="form-control" id="website" placeholder="enter your website url" v-model="student.website">
+          </div> 
+        </div>
+        <div class="form-row">
+          <div class="form-group col-md-6">
+            <label for="resume">Online Resume:</label>
+            <input type="string" class="form-control" id="resume" placeholder="enter your resume url" v-model="student.resume">
+          </div> 
+        </div>
+        <div class="form-row">
+          <div class="form-group col-md-6">
+            <label for="github">Github URL:</label>
+            <input type="string" class="form-control" id="github" placeholder="enter your github url" v-model="student.github">
+          </div> 
+        </div>
+        <div class="form-row">
+          <div class="form-group col-md-6">
+            <label for="photo">Photo:</label>
+            <input type="string" class="form-control" id="photo" placeholder="upload your photo url" v-model="student.photo">
+          </div> 
+        </div>
+      </form><br>
+    </div>
+
     
     <h1 class="text-center">Edit Experiences</h1>
     
@@ -55,7 +130,7 @@
 
     
 
-    <h3 class="text-center">Edit Education</h3>
+    <h2 class="text-center">Edit Education</h2>
 
     <div v-for="education in educations">
       <form v-on:submit.prevent="submit()">
@@ -92,6 +167,7 @@
       </form>
     </div>
 
+     <h2 class="text-center">Edit Capstone Info</h2>
 
     <div v-for="capstone in capstones">
       <form v-on:submit.prevent="submit()">
@@ -131,6 +207,7 @@ import axios from "axios";
 export default {
   data: function() {
     return {
+      student:{},
       experiences: [
         {
           start_date: "01-01-2019",
@@ -186,6 +263,10 @@ export default {
     };
   },
   created: function() {
+    axios.get("/api/students/1").then(response => {
+      console.log(response.data);
+      this.student = response.data;
+    });
   },
   methods: {
   }
