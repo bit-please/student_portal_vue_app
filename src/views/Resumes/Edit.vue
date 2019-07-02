@@ -39,6 +39,13 @@
       </form><br>
     </div>
 
+
+    <h1 class="text-center">Edit Skills</h1>
+
+    <div>
+
+    </div>
+
     
 
     <div v-for="capstone in capstones">
