@@ -4,7 +4,6 @@
   <button>
     <router-link v-bind:to="/resumes/">Edit</router-link>
   </button>
-  {{student}}
   <h1>{{ student.first_name }} {{ student.last_name }}</h1>
   <h3>Email: {{ student.email }}</h3>
   <h3>Phone Number:{{ student.phone_number }}</h3>
@@ -18,7 +17,7 @@
   <!-- Will need a loop for Skillz -->
   <h1>Skills</h1>
   <div v-for="skill in skills">
-    <h5>{{ skill }}</h5>
+    <h5>{{ skill.name }}</h5>
   </div>
   
   <!--   Will need a loop for experience -->
@@ -60,56 +59,20 @@ export default {
   data: function() {
     return {
       student: {},
-      capstones: [
-        {name: "capstone 1",
-          description: "capstonecapstonecapstone1",
-          url: "https://www.capstone1.com",
-          screenshot: "image.jpg"},
-        {name: "capstone 2",
-          description: "capstonecapstonecapstone2",
-          url: "https://www.capstone2.com",
-          screenshot: "image2.jpg"}
-      ],
-      skills: [ 
-        "javascript", 
-        "sql", 
-        "ruby", 
-        "postico"
-      ],
-      experiences: [
-        {
-          start_date: "01-01-2019",
-          end_date: "06-01-2019",
-          job_title: "job title 1",
-          company_name: "company name 1",
-          details: "details 1 details 1 details 1 details 1 details 1 details 1 details 1 "},
-        {
-          start_date: "02-01-2016",
-          end_date: "06-01-2018",
-          job_title: "job title 2",
-          company_name: "company name 2",
-          details: "details 2 details 2 details 2 details 2 details 2 details 2 details 2 "},
-      ],
-      educations: [
-        {
-          start_date: "01-01-2019",
-          end_date: "06-01-2019",
-          degree: "bachelors 1",
-          university_name: "university name 1",
-          details: "details 1 details 1 details 1 details 1 details 1 details 1 details 1 "},
-        {
-          start_date: "02-01-2016",
-          end_date: "06-01-2018",
-          degree: "bachelors 2",
-          university_name: "university name 2",
-          details: "details 2 details 2 details 2 details 2 details 2 details 2 details 2 "},
-      ],
+      capstones: [],
+      skills: [],
+      experiences: [],
+      educations: [],
     };
   },
   created: function() {
     axios.get("/api/students/1").then(response => {
       console.log(response.data);
       this.student = response.data;
+      this.skills = response.data.skills;
+      this.capstones = response.data.capstones;
+      this.experiences = response.data.experiences;
+      this.educations = response.data.educations;
     });
   }
 };
