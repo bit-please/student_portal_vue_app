@@ -93,15 +93,35 @@ export default {
           company_name: "company name 2",
           details: "details 2 details 2 details 2 details 2 details 2 details 2 details 2 "},
       ],
+      skills: [ 
+        "javascript", 
+        "sql", 
+        "ruby", 
+        "postico"
+      ],
+      educations: [
+        {
+          start_date: "01-01-2019",
+          end_date: "06-01-2019",
+          degree: "bachelors 1",
+          university_name: "university name 1",
+          details: "details 1 details 1 details 1 details 1 details 1 details 1 details 1 "},
+        {
+          start_date: "02-01-2016",
+          end_date: "06-01-2018",
+          degree: "bachelors 2",
+          university_name: "university name 2",
+          details: "details 2 details 2 details 2 details 2 details 2 details 2 details 2 "},
+      ],
       capstones: [
         {name: "capstone 1",
-        description: "capstonecapstonecapstone1",
-        url: "https://www.capstone1.com",
-        screenshot: "image.jpg"},
+          description: "capstonecapstonecapstone1",
+          url: "https://www.capstone1.com",
+          screenshot: "image.jpg"},
         {name: "capstone 2",
-        description: "capstonecapstonecapstone2",
-        url: "https://www.capstone2.com",
-        screenshot: "image2.jpg"}
+          description: "capstonecapstonecapstone2",
+          url: "https://www.capstone2.com",
+          screenshot: "image2.jpg"}
       ],
     };
   },
