@@ -3,8 +3,8 @@ import Router from 'vue-router';
 import Home from './views/Home.vue';
 import Login from './views/Login.vue';
 import Logout from './views/Logout.vue';
-import Update from './views/Update.vue';
-import ResumesShow from './views/Resumes/Show.vue';
+import Edit from './views/Resumes/Edit.vue';
+import Show from './views/Resumes/Show.vue';
 
 Vue.use(Router);
 
@@ -36,14 +36,14 @@ export default new Router({
       component: Logout
     },
     {
-      path: '/update',
-      name: 'update',
-      component: Update
+      path: '/resumes/:id/edit',
+      name: 'resumes-edit',
+      component: Edit
     },
     {
       path: '/resumes/:id',
       name: 'resumes-show',
-      component: ResumesShow
+      component: Show
     }
   ]
 });
