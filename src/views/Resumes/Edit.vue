@@ -144,7 +144,7 @@ export default {
         "sql", 
         "ruby", 
         "postico"
-      ]
+      ],
       educations: [
         {
           start_date: "01-01-2019",
