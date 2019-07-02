@@ -40,7 +40,7 @@
     </div>
 
     
-    <h2 class="text-center">Update Education</h2>
+    <h2 class="text-center">Edit Education</h2>
 
     <div v-for="education in educations">
       <form v-on:submit.prevent="submit()">
