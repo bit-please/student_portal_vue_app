@@ -101,25 +101,22 @@ export default {
           company_name: "company name 2",
           details: "details 2 details 2 details 2 details 2 details 2 details 2 details 2 "},
       ],
-<<<<<<< HEAD
       skills: [ 
         "javascript", 
         "sql", 
         "ruby", 
         "postico"
-      ]
-=======
+      ],
       capstones: [
         {name: "capstone 1",
-        description: "capstonecapstonecapstone1",
-        url: "https://www.capstone1.com",
-        screenshot: "image.jpg"},
+          description: "capstonecapstonecapstone1",
+          url: "https://www.capstone1.com",
+          screenshot: "image.jpg"},
         {name: "capstone 2",
-        description: "capstonecapstonecapstone2",
-        url: "https://www.capstone2.com",
-        screenshot: "image2.jpg"}
+          description: "capstonecapstonecapstone2",
+          url: "https://www.capstone2.com",
+          screenshot: "image2.jpg"}
       ],
->>>>>>> a86a72a53c44b45b687680fa2fe3e08a354a1c0d
     };
   },
   created: function() {
