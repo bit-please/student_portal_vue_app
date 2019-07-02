@@ -39,7 +39,7 @@
       </form><br>
     </div>
 
-    <h1 class="text-center">Edit Capstones</h1>
+    
 
     <div v-for="capstone in capstones">
       <form v-on:submit.prevent="submit()">
