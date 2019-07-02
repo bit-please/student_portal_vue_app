@@ -43,12 +43,11 @@
     <h1 class="text-center">Edit Skills</h1>
 
     <div>
-      <form>
-        
-      </form>
+
     </div>
 
     
+
     <h2 class="text-center">Edit Education</h2>
 
     <div v-for="education in educations">
@@ -86,6 +85,7 @@
       </form>
     </div>
 
+
     <div v-for="capstone in capstones">
       <form v-on:submit.prevent="submit()">
         <div class="form-row">
@@ -114,7 +114,6 @@
         </div>
       </form><br>
     </div>
-
 
   </div>
 </template>
@@ -160,21 +159,17 @@ export default {
           details: "details 2 details 2 details 2 details 2 details 2 details 2 details 2 "},
       ],
       capstones: [
-        {
-          name: "capstone 1",
+        {name: "capstone 1",
           description: "capstonecapstonecapstone1",
           url: "https://www.capstone1.com",
           screenshot: "image.jpg"},
-        {
-          name: "capstone 2",
+        {name: "capstone 2",
           description: "capstonecapstonecapstone2",
           url: "https://www.capstone2.com",
           screenshot: "image2.jpg"}
-      ]
+      ],
     };
-
   },
-  
   created: function() {
   },
   methods: {
