@@ -7,7 +7,7 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav">
-          <router-link v-if="isLoggedIn()" :to="'/resumes/' + student_id " class="nav-item nav-link">View Resume</router-link> 
+          <router-link v-if="isLoggedIn()" :to="'/resumes/' + student_id" class="nav-item nav-link">View Resume</router-link> 
           <router-link v-if="isLoggedIn()" :to="'/resumes/' + student_id +'/edit'" class="nav-item nav-link">Edit Resume</router-link> 
           <router-link to="/login" class="nav-item nav-link" v-if="!isLoggedIn()">Login</router-link> 
           <router-link to="/logout" class="nav-item nav-link" v-if="isLoggedIn()">Logout</router-link> 

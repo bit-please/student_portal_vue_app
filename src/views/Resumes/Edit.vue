@@ -299,7 +299,7 @@ export default {
         details: education.details
       };
       // hard coded education id until it is updated in api educations partial
-      axios.patch("/api/educations/1", params).then(response => {
+      axios.patch("/api/educations/" + education.id, params).then(response => {
         console.log(response.data);
       });
     },
