@@ -63,10 +63,11 @@ export default {
       skills: [],
       experiences: [],
       educations: [],
+      student_id: localStorage.getItem('student_id')
     };
   },
   created: function() {
-    axios.get("/api/students/1").then(response => {
+    axios.get("/api/students/" + this.student_id).then(response => {
       console.log(response.data);
       this.student = response.data;
       this.skills = response.data.skills;

@@ -1,13 +1,14 @@
 <template>
   <div class="resumes-edit">
 
-    {{student}}
+    <!-- {{student}} -->
+    {{errors}}
 
     <h1 class="text-center">Edit Your Personal Info:</h1>
     
-    <div v-for: student>
-      <!-- <form v-on:submit.prevent="submit()"> -->
-        <form>
+    <div>
+      <form v-on:submit.prevent="updateStudent()">
+        <!-- <form> -->
         <div class="form-row">
           <div class="form-group col-md-6">
             <label for="first_name">First Name:</label>
@@ -222,10 +223,12 @@ export default {
       skills: [],
       experiences: [],
       educations: [],
+      student_id: localStorage.getItem('student_id'),
+      errors: []
     };
   },
   created: function() {
-    axios.get("/api/students/1").then(response => {
+    axios.get("/api/students/" + this.student_id).then(response => {
       console.log(response.data);
       this.student = response.data;
       this.skills = response.data.skills;
@@ -247,6 +250,8 @@ export default {
       };
       axios.patch("/api/students/" + this.student.id, params).then(response => {
         console.log(response.data);
+      }).catch(error => {
+        this.errors = error.response.data.errors;
       });
     },
 
