@@ -1,6 +1,8 @@
 <template>
   <div class="resumes-edit">
 
+    {{errors}}
+
    <h1 class="text-center"><p class="text-info">Edit Your Personal Info</p></h1>
   
     
@@ -233,10 +235,12 @@ export default {
       skills: [],
       experiences: [],
       educations: [],
+      student_id: localStorage.getItem('student_id'),
+      errors: []
     };
   },
   created: function() {
-    axios.get("/api/students/1").then(response => {
+    axios.get("/api/students/" + this.student_id).then(response => {
       console.log(response.data);
       this.student = response.data;
       this.skills = response.data.skills;
@@ -258,6 +262,8 @@ export default {
       };
       axios.patch("/api/students/" + this.student.id, params).then(response => {
         console.log(response.data);
+      }).catch(error => {
+        this.errors = error.response.data.errors;
       });
     },
 
@@ -293,7 +299,7 @@ export default {
         details: education.details
       };
       // hard coded education id until it is updated in api educations partial
-      axios.patch("/api/educations/1", params).then(response => {
+      axios.patch("/api/educations/" + education.id, params).then(response => {
         console.log(response.data);
       });
     },

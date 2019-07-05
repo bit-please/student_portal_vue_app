@@ -7,10 +7,10 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav">
-          <router-link to="/resumes/1" class="nav-item nav-link">View Resume</router-link> 
-          <router-link to="/resumes/1/edit" class="nav-item nav-link">Edit Resume</router-link> 
-          <router-link to="/login" class="nav-item nav-link">Login</router-link> 
-          <router-link to="/logout" class="nav-item nav-link">Logout</router-link> 
+          <router-link v-if="isLoggedIn()" :to="'/resumes/' + student_id" class="nav-item nav-link">View Resume</router-link> 
+          <router-link v-if="isLoggedIn()" :to="'/resumes/' + student_id +'/edit'" class="nav-item nav-link">Edit Resume</router-link> 
+          <router-link to="/login" class="nav-item nav-link" v-if="!isLoggedIn()">Login</router-link> 
+          <router-link to="/logout" class="nav-item nav-link" v-if="isLoggedIn()">Logout</router-link> 
         </div>
       </div>
     </nav>
@@ -18,25 +18,27 @@
   </div>
 </template>
 
-<style>
+<script>
+import axios from "axios";
+export default {
+  data: function() {
+    return { 
+      student: {}, 
+      student_id: localStorage.getItem('student_id')
+    };
+  },
+  created: function() {
+  }, 
 
-/*#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
-#nav {
-  padding: 30px;
-}
 
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-#nav a.router-link-exact-active {
-  color: #42b983;
-}*/
-</style>
+  methods: {
+    isLoggedIn: function() {
+      if (localStorage.getItem("jwt")) {
+        return true;
+      } else {
+        return false;
+      }
+    }
+  }
+};
+</script>
