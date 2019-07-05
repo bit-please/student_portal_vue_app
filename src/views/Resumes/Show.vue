@@ -3,7 +3,8 @@
   
   <button>
     <router-link v-bind:to="/resumes/">Edit</router-link>
-  </button>
+  </button><br>
+  
   <h1>{{ student.first_name }} {{ student.last_name }}</h1>
   <h3>Email: {{ student.email }}</h3>
   <h3>Phone Number:{{ student.phone_number }}</h3>

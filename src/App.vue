@@ -20,7 +20,6 @@
 
 <script>
 import axios from "axios";
-
 export default {
   data: function() {
     return { 
@@ -28,7 +27,6 @@ export default {
       student_id: localStorage.getItem('student_id')
     };
   },
-
   created: function() {
   }, 
 

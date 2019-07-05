@@ -1,14 +1,15 @@
 <template>
   <div class="resumes-edit">
 
-    <!-- {{student}} -->
     {{errors}}
 
-    <h1 class="text-center">Edit Your Personal Info:</h1>
+   <h1 class="text-center"><p class="text-info">Edit Your Personal Info</p></h1>
+  
     
-    <div>
+    <div class="container">
+
+
       <form v-on:submit.prevent="updateStudent()">
-        <!-- <form> -->
         <div class="form-row">
           <div class="form-group col-md-6">
             <label for="first_name">First Name:</label>
@@ -75,16 +76,17 @@
             <input type="string" class="form-control" id="photo" placeholder="upload your photo url" v-model="student.photo">
           </div> 
         </div>
-        <button v-on:click="updateStudent()">Submit Changes</button>
+        <button type="button" class="btn btn-outline-primary" v-on:click="updateStudent()">Submit Changes</button>
       </form><br>
     </div>
 
     
-    <h1 class="text-center">Edit Experiences</h1>
+    <h1 class="text-center"><p class="text-info">Edit Experience</p></h1>
     
     <div v-for="experience in experiences">
-      <!-- <form v-on:submit.prevent="submit()"> -->
-      <form>
+
+    <div class="container">
+      <form v-on:submit.prevent="updateExperience(experience)">
         <div class="form-row">
           <div class="form-group col-md-6">
             <label for="start_date">Start Date:</label>
@@ -115,33 +117,38 @@
             <input type="text" class="form-control" id="details" placeholder="enter job details" v-model="experience.details">
           </div> 
         </div>
-      </form><br>
-      <button v-on:click="updateExperience(experience)">Submit Changes</button>
+      </form>
+      <button type="button" class="btn btn-outline-primary" v-on:click="updateExperience(experience)">Submit Changes</button><br>
+      <br>
+    </div>
     </div>
 
 
-    <h2 class="text-center">Edit Skills</h2>
+    <h1 class="text-center"><p class="text-info">Edit Skills</p></h1>
 
     <div v-for="skill in skills">
-      <!-- <form v-on:submit.prevent="submit()"> -->
-        <form>
+
+    <div class="container">
+      <form v-on:submit.prevent="updateSkill(skill)">
         <div class="form-row">
           <div class="form-group col-md-6">
             <label for="name">Name of Skill:</label>
-            <input type="text" class="form-control" id="name" placeholder="Describe your skill" v-model="skill.name">
-            <button v-on:click="updateSkill(skill)">Submit Changes</button>
+            <input type="text" class="form-control" id="name" placeholder="Describe your skill" v-model="skill.name"><br>
+            <button type="button" class="btn btn-outline-primary" v-on:click="updateSkill(skill)">Submit Changes</button>
           </div> 
         </div>
       </form>
     </div>
+    </div>
 
     
 
-    <h2 class="text-center">Edit Education</h2>
+    <h1 class="text-center"><p class="text-info">Edit Education</p></h1>
 
     <div v-for="education in educations">
-      <!-- <form v-on:submit.prevent="submit()"> -->
-        <form>
+
+      <div class="container">
+      <form v-on:submit.prevent="updateEducation(education)">
         <div class="form-row">
           <div class="form-group col-md-6">
             <label for="start_date">Start Date:</label>
@@ -173,15 +180,18 @@
           </div> 
         </div>
       </form>
-      <button v-on:click="updateEducation(education)">Submit Changes</button>
+      <button type="button" class="btn btn-outline-primary" v-on:click="updateEducation(education)">Submit Changes</button><br>
+      <br>
+    </div>
     </div>
 
-    <h2 class="text-center">Edit Capstone Info</h2>
+    <h1 class="text-center"><p class="text-info">Edit Capstone Info</p></h1>
 
     <div v-for="capstone in capstones">
-      <!-- <form v-on:submit.prevent="submit()"> -->
-        <form>
-        <div class="form-row">
+
+    <div class="container mb-5">
+      <form v-on:submit.prevent="updateCapstones(capstone)">
+       <div class="form-row">
           <div class="form-group col-md-6">
             <label for="start_date">Name:</label>
             <input type="string" class="form-control" id="name" placeholder="enter capstone name" v-model="capstone.name">
@@ -205,8 +215,10 @@
             <input type="string" class="form-control" id="screenshot" placeholder="enter screenshot url" v-model="capstone.screenshot">
           </div> 
         </div>
-      </form><br>
-      <button v-on:click="updateCapstones(capstone)">Submit Changes</button>
+      </form>
+      <button type="button" class="btn btn-outline-primary" v-on:click="updateCapstones(capstone)">Submit Changes</button>
+    </div>
+
     </div>
 
   </div>
